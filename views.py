@@ -5,7 +5,7 @@ from database import Note
 db = Database('banco')
 
 def index(request):
-    print( "request aqui -->", request, 'acabou')
+    
     if request.startswith('POST'):
         request = request.replace('\r', '')  # Remove caracteres indesejados
         # Cabeçalho e corpo estão sempre separados por duas quebras de linha

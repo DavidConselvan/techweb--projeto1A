@@ -142,7 +142,7 @@ Algumas informações úteis e dicas:
    justify-content: flex-start;
    align-items: center;
    background-color: #f7d736;
-   box-shadow: 2px 3px 5px gray;
+   box-shadow: 2px 3px 5px white;
    font-family: 'Roboto', sans-serif;
  }
  .form-card{
@@ -158,10 +158,12 @@ Algumas informações úteis e dicas:
    padding-top: 0.8rem;
    border-style: outset;
    border-width: 0.1rem;
-   box-shadow: 2px 3px 5px gray;
+   box-shadow: 2px 3px 5px yellow;
    border-radius: 0.5rem;
    padding-right: 0.8rem;
    padding-left: 0.8rem;
+   background-color: lightsteelblue;
+    
  }
  
  
@@ -178,6 +180,7 @@ Algumas informações úteis e dicas:
    font-size: 1.5rem;
    font-family: 'Roboto', sans-serif;
    margin-bottom: 0.5rem;
+   background-color: lightsteelblue;
  }
 
  .form-card-content{
@@ -186,6 +189,8 @@ Algumas informações úteis e dicas:
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 1rem;
+  background-color: lightsteelblue;
+  
  }
  .autoresize{
    border-style: none;
@@ -193,6 +198,7 @@ Algumas informações úteis e dicas:
    margin-top: 0.4rem;
    font-family: 'Roboto', sans-serif;
    resize: none;
+   background-color: lightsteelblue;
  }
  
  .card{
@@ -200,7 +206,7 @@ Algumas informações úteis e dicas:
    margin: 2rem 1rem 1rem 0rem;
    border-radius: 0.5rem;
    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
-   box-shadow: 2px 3px 5px gray;
+   box-shadow: 2px 3px 5px white;
  }
  
  .card-title{
@@ -208,7 +214,7 @@ Algumas informações úteis e dicas:
  }
  .card-content{
    font-family: 'Permanent Marker', cursive;
-   color: #515151;
+   color: white;
    padding-top: 2rem;
    
  }
@@ -303,12 +309,7 @@ Algumas informações úteis e dicas:
  .card-rotation-11{
    transform: rotate(-5deg);
  }
- .btn-dark{
-  background-color: black;
-  margin: 1rem;
-  align-self: center;
-  color: white;
-  border-radius: 0.5rem;
+ 
+ .body{
+    background-color:black
  }
- 
- 

@@ -1,7 +1,7 @@
 import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response
-from views import index
+from views import index, delete, edit, four_zero_four
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -12,27 +12,38 @@ server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen()
 
+
 print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
 
 while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode()
-    print('*'*100)
-    
 
     route = extract_route(request)
     filepath = CUR_DIR / route
+
+    
     
     if filepath.is_file():
         if filepath.suffix == '.css':
             response = build_response(headers = 'Content-Type: text-css; chrset = utf-8') + read_file(filepath)
         else:
             response = build_response() + read_file(filepath)
+
     elif route == '':
         response = index(request)
+
+    elif route.startswith("delete"):
+        id = int(route.split('/')[-1])
+        response = delete(id)
+
+    elif route.startswith("edit"):
+        id = int(route.split('/')[-1])
+        response = edit(request, id)
+
     else:
-        response = build_response()
+        response = four_zero_four()
 
     client_connection.sendall(response)
 

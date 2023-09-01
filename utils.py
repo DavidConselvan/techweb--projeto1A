@@ -3,10 +3,16 @@ from database import Database
 from database import Note   
 db = Database('banco')
 
-def extract_route(string):
-    new_string = string.split('\n')[0].split(' ')[1]
-    new_string = new_string.replace('/', '',1)
-    return new_string
+def extract_route(raw_request):
+    lines = raw_request.splitlines()
+    if len(lines) == 0:
+        return None
+    first = lines[0]
+
+    path = first.split()[1]
+    if path[0] == '/':
+        path = path[1:]
+    return path
 
 def read_file(path):
     file = open(path,"r+b")
@@ -25,5 +31,5 @@ def build_response(body = "", code = 200, reason = "OK", headers = ''):
         response = f'{status_line}\n{headers}\n{body}'
     else:
         response = f'{status_line}\n{headers}\n\n{body}'
-    print("aqui --> ", response)
+    
     return response.encode()

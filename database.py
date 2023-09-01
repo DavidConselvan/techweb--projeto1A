@@ -28,6 +28,13 @@ class Database:
             notes.append(new_note)
         return notes
     
+    def get(self, id):
+        cursor = self.conn.execute(f"SELECT title, content FROM note WHERE id = '{id}'")
+
+        for i in cursor:
+            note = Note(id, i[0], i[1])
+        return note
+    
     def update(self, entry: Note ):
         sql = "UPDATE note SET title = ?, content = ? WHERE id = ?"
         args = (entry.title, entry.content,entry.id)
@@ -35,9 +42,8 @@ class Database:
         self.conn.commit()
 
     def delete(self, note_id):
-        sql = "DELETE FROM note WHERE id = ?;"
-        args = (note_id)
-        self.conn.execute(sql,args)
+        sql = f"DELETE FROM note WHERE id = '{note_id}';"
+        self.conn.execute(sql)
         self.conn.commit()  
 
 

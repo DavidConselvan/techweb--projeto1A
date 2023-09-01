@@ -14,14 +14,13 @@
         href="https://fonts.googleapis.com/css2?family=Roboto&family=Permanent+Marker&display=swap"
         rel="stylesheet"
         />
-        <link id = "theme" rel="stylesheet" href="/getit.css" />
+        <link id = "ed-theme" rel="stylesheet" href= "/getit.css"/>
     </head>
 
     <body class = "body">
         <div class = "appbar">
             <img src="/img/logo-getit.png" class = "logo">
             <p  class = "subtitle">Como o Post-it, mas com outro verbo</p>
-            <button class = "btn-dark" id = "theme-toggle">Dark mode</button>
         </div>
         
         <main class = "container" >
@@ -30,21 +29,21 @@
                   class="form-card-title"
                   type="text"
                   name="titulo"
-                  placeholder="Título"
+                  placeholder= 'Digite o novo titulo'
+                  value = {titulo}
                 />
-                <textarea
-                  class="autoresize"
+                <input
+                  class="form-card-content"
                   name="detalhes"
-                  placeholder="Digite o conteúdo..."
-                ></textarea>
-                <button class="btn" type="submit">Adicionar</button>
+                  placeholder = 'Digite o novo conteudo'
+                  value = {conteudo}
+                ></input>
+                <button class="btn" type="submit">Salvar</button>
+                <a href = ".//"></a><button class="btn" type="submit">Cancelar</button></a>
                 
             </form>
-        <div class = "card-container">
-            {notes}
-        </div>
         
         </main>
-        <script type="text/javascript" src="/getit.js"></script>
+        <script type="text/javascript" src="/edit.js"></script>
     </body>
 </html>

@@ -4,7 +4,11 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
   // Faz textarea aumentar a altura automaticamente
   // Fonte: https://www.geeksforgeeks.org/how-to-create-auto-resize-textarea-using-javascript-jquery/#:~:text=It%20can%20be%20achieved%20by,height%20of%20an%20element%20automatically.
   let textareas = document.getElementsByClassName("autoresize");
@@ -27,4 +31,26 @@ document.addEventListener("DOMContentLoaded", function () {
       5
     )} card-rotation-${getRandomInt(1, 11)}`;
   }
+});
+
+document.addEventListener("DOMContentLoaded", change=  () => {
+  
+  const themeStylesheet = document.getElementById("theme")
+  const themeToggle = document.getElementById("theme-toggle");
+  themeStylesheet.href = localStorage.getItem("theme")
+  
+  themeToggle.addEventListener('click', () => {
+    
+    if(themeStylesheet.href.includes("getit")){
+        themeStylesheet.href = "/dark.css";
+        themeToggle.innerText = "Light mode";
+        
+    } else {
+        themeStylesheet.href = "/getit.css";
+        themeToggle.innerText = "Dark mode";
+        
+    }
+    localStorage.setItem("theme", themeStylesheet.href)
+    
+  })
 });

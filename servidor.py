@@ -33,6 +33,7 @@ while True:
 
     elif route == '':
         response = index(request)
+        
 
     elif route.startswith("delete"):
         id = int(route.split('/')[-1])
@@ -41,9 +42,11 @@ while True:
     elif route.startswith("edit"):
         id = int(route.split('/')[-1])
         response = edit(request, id)
+        
 
     else:
         response = four_zero_four()
+        
 
     client_connection.sendall(response)
 

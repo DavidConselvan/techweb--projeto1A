@@ -6,7 +6,7 @@ db = Database('banco')
 
 def four_zero_four():
     body = load_template('four_zero_four.html')
-    return build_response(body=body) 
+    return build_response(body=body, code = 404, reason="Not Found", headers ='Location: /') 
 
 def delete(id):
     id = str(id)
